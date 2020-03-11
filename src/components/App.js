@@ -31,9 +31,9 @@ const useStyles = makeStyles(theme => ({
     primary: blue,
   },
   root: {
-    display: 'flex',
-    paddingLeft: "24px",
-    paddingRight: "24px"
+    display: 'flex'
+    // paddingLeft: "24px",
+    // paddingRight: "24px"
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,

@@ -3,32 +3,7 @@ import CourseCard from './CourseCard';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-
-
-const courseData = [{courseName: "Intro to Architecture",
-                      numOfStudents: 31,
-                      classAverage: 73,
-                      courseLink: "https://www.apple.com"},
-                    
-                      {courseName: "Intro to Architecture",
-                      numOfStudents: 31,
-                      classAverage: 73,
-                      courseLink: "https://www.apple.com"},
-                    
-                      {courseName: "Intro to Architecture",
-                      numOfStudents: 31,
-                      classAverage: 73,
-                      courseLink: "https://www.apple.com"},
-                    
-                      {courseName: "Intro to Architecture",
-                      numOfStudents: 31,
-                      classAverage: 73,
-                      courseLink: "https://www.apple.com"},
-                    
-                      {courseName: "Intro to Architecture",
-                      numOfStudents: 31,
-                      classAverage: 73,
-                      courseLink: "https://www.apple.com"}]
+import { courseData } from '../common/data'
 
 function createCourseCards(courseData, rowSize) {
   let coursecards = [];
@@ -43,7 +18,7 @@ return coursecards;
 }
 
 export default function Dashboard() {
-  const courses = createCourseCards(courseData, 3)
+  const courses = createCourseCards(Object.values(courseData), 3)
     return (
           <Container maxWidth="lg">
             {courses}

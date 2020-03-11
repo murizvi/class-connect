@@ -36,7 +36,7 @@ export default function CardTemplate(props) {
   const history = useHistory();
   return (
     <Card>
-      <CardActionArea onClick={() => history.push("/test")}>
+      <CardActionArea onClick={() => history.push(props.linkValue)}>
         <CardContent>
           <Typography component="h2" variant="h6" color="primary" gutterBottom>
             {props.title}

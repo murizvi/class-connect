@@ -9,7 +9,7 @@ export default function CourseCard(props) {
               subHeading="Course average"
               subHeadingValue={props.course.classAverage}
               linkText = "View course"
-              linkValue={"/test"}
+              linkValue={`/course/${props.course.id}`}
         />
     )
 }
