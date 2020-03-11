@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useParams } from "react-router-dom";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -45,12 +45,16 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function Course() {
+    const [postInfo, setPosts] = React.useState(coursePosts);
+
     let {id} = useParams();
     const classes = useStyles();
     // return (
     //     <h2>Course ID is {id}</h2>
     // )
 
+
+    
     let courseInfo = courseData[id];
     console.log(courseInfo);
 
@@ -85,10 +89,10 @@ export default function Course() {
                             description: "This is a sample description for a course",
                             image: "https://source.unsplash.com/random",
                             date: "Jan 17"}}/>
-        {coursePosts.map((post) => (
+        {postInfo.map((post) => (
             <CoursePost post={post}/>
         ))}  
-      <CreatePost/>                
+      <CreatePost updatePosts={setPosts}/>                
     </div>
     );
 
