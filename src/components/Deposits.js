@@ -2,34 +2,23 @@ import React from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import CardTitle from './CardTitle';
-import Paper from '@material-ui/core/Paper';
+import Title from './Title';
 
 function preventDefault(event) {
   event.preventDefault();
 }
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   depositContext: {
     flex: 1,
   },
-  paper: {
-    padding: theme.spacing(2),
-    display: 'flex',
-    overflow: 'auto',
-    flexDirection: 'column',
-  },
-  fixedHeight: {
-    height: 240,
-  }
-}));
+});
 
-export default function Card() {
+export default function Deposits() {
   const classes = useStyles();
   return (
-
-        <Paper className={'classes.paper classes.fixedHeight'}>
-      <CardTitle>Recent Deposits</CardTitle>
+    <React.Fragment>
+      <Title>Recent Deposits</Title>
       <Typography component="p" variant="h4">
         $3,024.00
       </Typography>
@@ -41,7 +30,6 @@ export default function Card() {
           View balance
         </Link>
       </div>
-      </Paper>
-
+    </React.Fragment>
   );
 }

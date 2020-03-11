@@ -29,7 +29,7 @@ export default function TitleBar() {
                     <MenuIcon />
                 </IconButton>
                 <Typography variant="h6" className={classes.title}>
-                     News
+                     Class Connect
                 </Typography>
                 <Button color="inherit">Login</Button>
             </Toolbar>
