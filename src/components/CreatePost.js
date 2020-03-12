@@ -32,7 +32,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function DraggableDialog(props) {
   const [open, setOpen] = React.useState(false);
-  const [title, setTitle] = React.useState("test")
+  const [postDetails, setPost] = React.useState({
+    title: "",
+    date: "2019-03-12",
+    content: ""
+  })
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -44,7 +48,12 @@ export default function DraggableDialog(props) {
 
   const handlePost = () => {
     setOpen(false);
-    props.updatePosts()
+    props.updatePosts(postDetails);
+    setPost({
+      title: "",
+      date: "2019-03-12",
+      content: ""
+    });
   };
 
   const classes = useStyles();
@@ -74,18 +83,22 @@ export default function DraggableDialog(props) {
               shrink: true,
             }}
             variant="outlined"
-            value={title}
+            value={postDetails.title}
+            onChange={(e) => setPost({...postDetails,
+                                      title: e.target.value})}
           />
           <TextField
             id="date"
             label="Birthday"
             type="date"
             fullWidth
-            defaultValue="2019-03-12"
             className={classes.textField}
             InputLabelProps={{
               shrink: true,
             }}
+            value={postDetails.date}
+            onChange={(e) => setPost({...postDetails,
+                                      date: e.target.value})}
           />
           <TextField
             id="outlined-multiline-static"
@@ -95,6 +108,9 @@ export default function DraggableDialog(props) {
             fullWidth
             variant="outlined"
             className={classes.postContent}
+            value={postDetails.content}
+            onChange={(e) => setPost({...postDetails,
+                                      content: e.target.value})}
           />
         </DialogContent>
         <DialogActions>

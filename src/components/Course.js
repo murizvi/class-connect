@@ -13,6 +13,7 @@ import CoursePost from './CoursePost'
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit';
 import CreatePost from './CreatePost';
+import {useHistory} from 'react-router-dom'
 
 const drawerWidth = 260;
 
@@ -53,10 +54,13 @@ export default function Course() {
     //     <h2>Course ID is {id}</h2>
     // )
 
-
+    function addPost(post) {
+      setPosts((oldPosts) => [...oldPosts, post])
+    }
     
     let courseInfo = courseData[id];
-    console.log(courseInfo);
+
+    let history = useHistory();
 
     return (
         <div className={classes.root}>
@@ -72,7 +76,7 @@ export default function Course() {
         {studentData.map(value => {
           const labelId = `checkbox-list-secondary-label-${value}`;
           return (
-            <ListItem key={value} button>
+            <ListItem key={value} button onClick={() => history.push(`/student/${value.id}/`)}>
               <ListItemAvatar>
                 <Avatar
                   alt={`Avatar n°${value + 1}`}
@@ -92,7 +96,7 @@ export default function Course() {
         {postInfo.map((post) => (
             <CoursePost post={post}/>
         ))}  
-      <CreatePost updatePosts={setPosts}/>                
+      <CreatePost updatePosts={addPost}/>                
     </div>
     );
 
