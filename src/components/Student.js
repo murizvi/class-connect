@@ -5,6 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import FolderIcon from '@material-ui/icons/Folder';
+import Avatar from '@material-ui/core/Avatar';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import {useHistory} from 'react-router-dom'
 import {assignmentData} from '../common/data'
 import Assignment from './Assignment'
@@ -63,9 +67,18 @@ export default function Student() {
         <List dense>
         {Object.keys(assignmentData).map(value => {
           const labelId = `checkbox-list-secondary-label-${value}`;
+          const gradeLabel = `${assignmentData[value].grade}%`;
           return (
             <ListItem key={value} button onClick={() => setAssignment(value)}>
-              <ListItemText id={labelId} primary={assignmentData[value].title} />
+            <ListItemAvatar>
+                <Avatar>
+                    <FolderIcon/>
+                </Avatar>
+            </ListItemAvatar>
+              <ListItemText id={labelId} primary={assignmentData[value].title} secondary={assignmentData[value].date}/>
+            <ListItemAvatar>
+            <ListItemText id={{labelId}+'2'} primary={gradeLabel}/>
+            </ListItemAvatar>
             </ListItem>
           );
         })}

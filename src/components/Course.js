@@ -62,6 +62,11 @@ export default function Course() {
 
     let history = useHistory();
 
+    // Sort posts in reverse chronological order
+    postInfo.sort((post1, post2) => {
+      return (new Date(post2.date) - new Date(post1.date))
+    });
+
     return (
         <div className={classes.root}>
         <Drawer

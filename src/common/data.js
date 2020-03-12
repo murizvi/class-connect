@@ -259,16 +259,31 @@ let assignmentData = {
   0: {
     "title": "Insect Assignment",
     "grade": 84,
+    "attachments": [{
+      "filename": "insect.jpg",
+      "src": "../images/"
+    }],
+    "comments": "You did a good job, but I hate insects. Please ask for more clarification next time.",
+    "date": "10/31/2019",
     "id": 0
   },
   1: {
     "title": "Bake-a-food Project",
     "grade": 73,
+    "attachments": [{
+      "filename": "cookie.jpg",
+      "src": "../images/"
+    }],
+    "comments": "Is this vegan?",
+    "date": "11/11/2019",
     "id": 1
   },
   2: {
     "title": "English Literature Essay",
     "grade": 93,
+    "attachments": [],
+    "comments": "Wow. Your writing is at a level well beyond your years. Keep it up!",
+    "date": "12/04/2019",
     "id": 2
   }
 }
